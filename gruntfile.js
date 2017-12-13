@@ -16,7 +16,7 @@ module.exports = function(grunt) {
             }
         },
         browserify: {
-            'dist/js/App.js': ['main.js']
+            'dist/js/AppInteractome.js': ['main.js']
         },
         handlebars: {
             compile: {
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         uglify: {
             my_target: {
                 files: {
-                    'dist/js/App.min.js': ['dist/js/App.js']
+                    'dist/js/AppInteractome.min.js': ['dist/js/AppInteractome.js']
                 }
             }
         },

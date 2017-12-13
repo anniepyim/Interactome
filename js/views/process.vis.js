@@ -82,8 +82,6 @@ function initVis(){
         d.y = (d.y * prPadding) + yMin;
     });
     
-    console.log(data.processes);
-    
     _.each(data.nodes, function(d){
         d.x = d.x + (d.parent.x - d.parent.original.x);
         d.y = d.y + (d.parent.y - d.parent.original.y);
@@ -126,8 +124,7 @@ function initVis(){
             .attr('r', d.r)
             .attr('stroke-width', 2)
             .attr('stroke', function(d){ 
-                var p = _.pluck(d.genes, 'Variant_sites');
-                return (p.join('').length > 0) ? mutationColor : null;
+                return (d.mutation > 0) ? mutationColor : null;
             })
             .on('mouseout', onMouseOut)
             .on('mouseover', onMouseOverNode);
@@ -178,8 +175,8 @@ function initVis(){
                 .attr('cy', function(d){ return d.y; })
                 .attr('opacity', 0)
                 .attr('display','none')
-                .attr('stroke-width', function(d){ return (d.mutation.length) ? 1.2 : 1; })
-                .attr('stroke', function(d){ return (d.mutation.length) ? mutationColor : stroke(d.regulated);})
+                .attr('stroke-width', function(d){ return (d.mutation > 0) ? 1.2 : 1; })
+                .attr('stroke', function(d){ return (d.mutation > 0) ? mutationColor : stroke(d.regulated);})
                 .attr('class', function(d){ return 'gene ' + d.parent.id; })
                 .on('mouseout', onMouseOut)
                 .on('mouseover', onMouseOverNode);
@@ -213,7 +210,7 @@ function initVis(){
         .attr('y', function(d){ return d.y + d.r;})
         .attr('class', 'node theme')
         .style('text-anchor','middle')
-        .style('font-size', function(d){ return ann_scale(d.r); })
+        .style('font-size', function(d){ return ann_scale(d.r)+"px"; })
         .on('mouseover', function(d){
             if(clickEvent.holdClick) return;
             

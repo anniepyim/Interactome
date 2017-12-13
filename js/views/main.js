@@ -9,12 +9,12 @@ module.exports = Backbone.View.extend({
         'click .results li' : 'onClick'
     },
     
-    template: templates.main,
+    /*template: templates.main,
     
     render: function(){
         this.$el.append(this.template({}));
         return this;
-    },
+    },*/
     
     onBlur : function(e){
         

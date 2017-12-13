@@ -32,7 +32,8 @@ function dataFormatter(nodes, links){
         //Assign genes a parent
         _.each(genes, function(g){
             g.parent = process;
-            g.log2 = d3.format(".3f")(g.log2);
+            g.uplog2 = d3.format(".3f")(g.uplog2);
+            g.downlog2 = d3.format(".3f")(g.downlog2);
             g.pvalue = d3.format(".3f")(g.pvalue);
         });
         
