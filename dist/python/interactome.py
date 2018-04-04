@@ -55,8 +55,3 @@ json_all = json.dumps(json_all)
 
 print 'Content-Type: application/json\n\n'
 print (json_all)
-
-
-
-
-

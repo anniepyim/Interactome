@@ -53,12 +53,18 @@ function initVis(){
         .children(function(d){ return d.genes;})
         .value(function(d) { return Math.abs(d.log2); })
         .sort(function(a,b){
+            // var threshold = 10000000;
+
+            // if ((a.value > threshold) && (b.value > threshold)) {
+            //     return -(a.value - b.value);
+            // } else {
+            //     return -1;
+            // }
+            // if(a.genes && b.genes){
+            //     return  b.regulated - a.regulated;
+            // }
             
-            if(a.genes && b.genes){
-                return  b.regulated - a.regulated;
-            }
-            
-            return a.value - b.value;
+            return -(a.value - b.value);
         })
         .nodes(root);
     

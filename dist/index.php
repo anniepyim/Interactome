@@ -121,7 +121,7 @@ $unix_socket = $json['unix_socket'];
         
         
         
-        App.init("Fly");
+        App.init("Human");
     </script>
 </html>
 <?php
