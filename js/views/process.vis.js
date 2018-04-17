@@ -7,7 +7,7 @@ var regulation = require('../geneRegulation')();
 var selector,
     svg, // SVG tag
     width = 900, // vis width
-    height = 900, //vis height
+    height = 750, //vis height
     padding = 100,
     offset = 150,
     maxRadius = 10,
@@ -482,7 +482,7 @@ function search(str){
     str = str.toLowerCase();
     
     var matchingGenes = d3.selectAll('.gene')
-                        .filter(function(d){ return d.gene.toLocaleLowerCase().match(str); })
+                        .filter(function(d){ return d.geneID.toLocaleLowerCase().match(str); })
                         .classed('search', true);
     
     matchingGenes.each(function(d){
